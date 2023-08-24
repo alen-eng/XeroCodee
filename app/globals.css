@@ -15,7 +15,27 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
+.custom-shape-divider-bottom-1692514955 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(0deg);
+}
 
+.custom-shape-divider-bottom-1692514955 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 223px;
+  transform: rotateY(0deg);
+}
+
+.custom-shape-divider-bottom-1692514955 .shape-fill {
+  fill: #1F64FF;
+}
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
