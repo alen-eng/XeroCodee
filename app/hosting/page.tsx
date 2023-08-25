@@ -1,6 +1,6 @@
 "use client";
 import { getCookie ,setCookie,deleteCookie } from 'cookies-next';
-import React, { ReactEventHandler } from 'react'
+import React, { ReactEventHandler, useEffect } from 'react'
 import Image from 'next/image'
 import { useState } from 'react';
 import {useRouter} from 'next/navigation';
@@ -18,7 +18,7 @@ function Hosting() {
   // if(!token){
   //     router.push('/login')
   // }
-
+  useEffect(() => {
   if(!token && !user){
     router.push('/login')
    }
@@ -37,7 +37,7 @@ function Hosting() {
             }
         })
   }
-  
+}, []);
 
   const handleHosting =  (event:any) => {
       event.preventDefault();

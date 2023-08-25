@@ -1,7 +1,7 @@
 
 "use client";
 import { getCookie ,setCookie,deleteCookie } from 'cookies-next';
-import React from 'react'
+import React, { useEffect } from 'react'
 import Image from 'next/image'
 import { useState } from 'react';
 import { refresh } from './api/login/route';
@@ -17,6 +17,7 @@ export default function Home() {
   const user = getCookie('User');
   const name = getCookie('Name');
 
+  useEffect(() => {
   if(!token && !user){
       router.push('/signup')
      }
@@ -35,6 +36,8 @@ export default function Home() {
               }
           })
     }
+  }, []);
+  
    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         
      event.preventDefault();

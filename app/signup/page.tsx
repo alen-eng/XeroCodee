@@ -4,7 +4,7 @@
 import { getCookie ,setCookie,deleteCookie } from 'cookies-next';
 import Image from 'next/image'
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import handler from '../api/signup/route'
 import { useRouter } from 'next/navigation';
 import { googleHandler, refresh ,githubHandler } from '../api/login/route';
@@ -22,6 +22,7 @@ export default function Signup () {
   const user = getCookie('User');
   const {status , data: session } = useSession();
   
+   useEffect(() => {
   if(token ){
     router.replace('/')
 }
@@ -43,7 +44,7 @@ else if(!token && !user){
             }
         })
   }
-
+   }, []);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();

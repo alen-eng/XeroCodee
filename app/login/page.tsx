@@ -2,7 +2,7 @@
 
 "use client";
 import { getCookie ,setCookie,deleteCookie } from 'cookies-next';
-import React from 'react'
+import React, { useEffect } from 'react'
 import Image from 'next/image'
 import { useState } from 'react';
 import handler, { githubHandler, googleHandler, refresh } from '../api/login/route';
@@ -23,6 +23,7 @@ function Login() {
    const user = getCookie('User');
    const {status , data: session } = useSession();
    
+   useEffect(() => {
    if(token ){
        router.replace('/')
    }
@@ -44,7 +45,7 @@ function Login() {
                }
            })
      }
-   
+   }, []);
 
   const handleLogin = async (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();

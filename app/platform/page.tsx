@@ -1,6 +1,6 @@
 "use client";
 import { getCookie ,setCookie,deleteCookie } from 'cookies-next';
-import React from 'react'
+import React, { useEffect } from 'react'
 import Image from 'next/image'
 import { useState } from 'react';
 import {useRouter} from 'next/navigation';
@@ -20,7 +20,7 @@ function Platform() {
   // if(!token){
   //     router.push('/login')
   // }
-
+  useEffect(() => {
   if(!token && !user){
     router.push('/signup')
    }
@@ -38,6 +38,7 @@ function Platform() {
             }
         })
   }
+}, []);
 
   const handleEvent = async (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
