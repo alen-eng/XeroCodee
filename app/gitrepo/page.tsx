@@ -82,18 +82,7 @@ export default function GitRepo() {
             <h2></h2>
              </div> 
             </div>
-            </div> 
-            // : (
-            //   <div className='w-3/5 pt-4  pb-20'>
-            //   <div className='flex items-start pt-4 pl-2 pb-28 border border-[#C0C0C0]  rounded-md '>
-            //    <div className='text-left'> 
-            //   <h2 className='text-lg font-extrabold'>reposList</h2>
-            //   <h2></h2>
-            //    </div> 
-            //   </div>
-            //   </div>
-            // )
-         
+            </div>    
         </div>
        </main>
       </div>
