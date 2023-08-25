@@ -67,7 +67,7 @@ else if(!token && !user){
   }
 
   const handleGoogle = async (event:any) => {
-    signIn("google",{callbackUrl:'http://localhost:3000'})
+    signIn("google",{callbackUrl:'https://xero-codee-three.vercel.app'})
     event.preventDefault()
    googleHandler(String(session?.user?.name)  , String(session?.user?.email)).then((res)=>{
       const result =JSON.parse(JSON.stringify(res))
@@ -88,7 +88,7 @@ else if(!token && !user){
   }
 
   const handleGithub = async (event: any) => {
-      signIn("github",{callbackUrl:'http://localhost:3000'})
+      signIn("github",{callbackUrl:'https://xero-codee-three.vercel.app'})
       event.preventDefault()
       githubHandler(String(session?.user?.name)  , String(session?.user?.email)).then((res)=>{
          const result =JSON.parse(JSON.stringify(res))
