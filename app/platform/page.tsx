@@ -15,6 +15,7 @@ function Platform() {
   const token = getCookie('accesstoken');
   const user = getCookie('User');
   const name = getCookie('Name');
+  const {status , data: session } = useSession();
   useEffect(() => {
   if(!token && !user){
     router.push('/signup')
@@ -49,7 +50,6 @@ function Platform() {
         event.preventDefault()
         signIn("github",{callbackUrl:'https://xero-codee-three.vercel.app/gitrepo'})
         event.preventDefault()
-        const {status , data: session } = useSession();
         const userId = session?.user?.image?.slice(40,-4);
         const loginUser =await fetch(`https://api.github.com/user/${userId}`, {
           method: 'GET',
