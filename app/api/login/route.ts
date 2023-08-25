@@ -1,6 +1,6 @@
 
  const refresh = async (user: string) => {
-  let res = await fetch("http://localhost:3200/refresh", {
+  let res = await fetch("https://host007.azurewebsites.net/refresh", {
     method: "POST",
     headers: {    "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -12,7 +12,7 @@
   }
 
  const handler = async (email:string , password:string) => {
-    let res = await fetch("http://localhost:3200/signin", {
+    let res = await fetch("https://host007.azurewebsites.net/signin", {
         method: "POST",
         headers: {    "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -25,7 +25,7 @@
       }
 
 const googleHandler = async (name:string , email: string) => {
-  let res = await fetch("http://localhost:3200/auth/google", {
+  let res = await fetch("https://host007.azurewebsites.net/auth/google", {
     method: "POST",
     headers: {    "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -38,7 +38,7 @@ const googleHandler = async (name:string , email: string) => {
   };
 
   const githubHandler = async (name:string , email: string) => {
-    let res = await fetch("http://localhost:3200/auth/github", {
+    let res = await fetch("https://host007.azurewebsites.net/auth/github", {
       method: "POST",
       headers: {    "Content-Type": "application/json" },
           body: JSON.stringify({
