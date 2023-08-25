@@ -73,6 +73,7 @@ function Login() {
    }
 
   const handleGoogle = async (event:any) => {
+   event.preventDefault()
     signIn("google",{callbackUrl:'https://xero-codee-three.vercel.app'})
     console.log(session?.user?.name)
     event.preventDefault()
@@ -95,6 +96,7 @@ function Login() {
   }
 
   const handleGithub = async (event: any) => {
+   event.preventDefault()
    signIn("github",{callbackUrl:'https://xero-codee-three.vercel.app'})
    event.preventDefault()
    githubHandler(String(session?.user?.name)  , String(session?.user?.email)).then((res)=>{
