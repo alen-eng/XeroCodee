@@ -8,7 +8,7 @@ import { refresh } from '../api/login/route';
 import { hostHandler } from '../api/home/route';
 
 
-function hosting() {
+function Hosting() {
    const router=useRouter();
  const [select, setSelect] = useState('Self');
 
@@ -108,4 +108,4 @@ function hosting() {
   )
 }
 
-export default hosting
+export default Hosting

@@ -9,13 +9,12 @@ import handler, { githubHandler, googleHandler, refresh } from '../api/login/rou
 
 import Link from 'next/link';
 import {useRouter} from 'next/navigation';
-import jwt  from 'jsonwebtoken';
-import passport from "passport";
+
 import { signIn , useSession} from 'next-auth/react';
 
 
 
-function login() {
+function Login() {
    const router=useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -200,4 +199,4 @@ function login() {
   )
   }
 
-export default login
+export default Login

@@ -8,7 +8,7 @@ import { refresh } from '../api/login/route';
 import { optionHandler } from '../api/home/route';
 
 
-function platform() {
+function Platform() {
    const router=useRouter();
   const [select, setSelect] = useState('');
   const [value, setValue] = useState('');
@@ -124,4 +124,4 @@ function platform() {
   )
 }
 
-export default platform
+export default Platform

@@ -8,7 +8,7 @@ import { refresh } from '../api/login/route';
 import {useRouter} from 'next/navigation';
 import handler from '../api/home/route'
 
-export default function Home() {
+export default function GitRepo() {
    const router=useRouter();
   const [select, setSelect] = useState('');
   const [value, setValue] = useState('');
