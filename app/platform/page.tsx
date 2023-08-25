@@ -4,9 +4,9 @@ import React, { useEffect } from 'react'
 import Image from 'next/image'
 import { useState } from 'react';
 import {useRouter} from 'next/navigation';
-import { refresh } from '../api/login/route';
+import { githubHandler, refresh } from '../api/login/route';
 import { optionHandler } from '../api/home/route';
-
+import { signIn ,useSession } from 'next-auth/react';
 
 function Platform() {
    const router=useRouter();
@@ -15,11 +15,6 @@ function Platform() {
   const token = getCookie('accesstoken');
   const user = getCookie('User');
   const name = getCookie('Name');
-  // const nextToken =  getCookie("next-auth.session-token");
-  // console.log(nextToken)
-  // if(!token){
-  //     router.push('/login')
-  // }
   useEffect(() => {
   if(!token && !user){
     router.push('/signup')
@@ -49,7 +44,25 @@ function Platform() {
          }
        }
        )
-   }
+      }     
+      const handleGithub = async (event: any) => {
+        event.preventDefault()
+        signIn("github",{callbackUrl:'https://xero-codee-three.vercel.app/gitrepo'})
+        event.preventDefault()
+        const {status , data: session } = useSession();
+        const userId = session?.user?.image?.slice(40,-4);
+        const loginUser =await fetch(`https://api.github.com/user/${userId}`, {
+          method: 'GET',
+           headers: {
+            'Content-Type': 'application/json',
+           },});
+        const loginData = JSON.parse(JSON.stringify(loginUser))
+        setCookie('Gituser',loginData.login,{
+          maxAge:60*2,
+          path:'/'   
+        })
+
+     }  
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2 bg-[url('/assets/bgHome.png')] bg-[#C2DAFB] " > 
@@ -92,8 +105,7 @@ function Platform() {
               <button
                   type='submit'
                   className="bg-white flex flex-row items-center gap-1 rounded-md text-black font-semibold text-sm border px-20 py-2 hover:bg-[#1F64FF] hover:text-white "
-                  onClick={()=>{if(select=='Github') setSelect('')
-                                else setSelect('Github')}}
+                  onClick={handleGithub}
                   >Github</button>
  </div>
        

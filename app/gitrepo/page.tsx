@@ -6,16 +6,17 @@ import Image from 'next/image'
 import { useState } from 'react';
 import { refresh } from '../api/login/route';
 import {useRouter} from 'next/navigation';
-import handler from '../api/home/route'
+import handler, { repoHandler } from '../api/home/route'
 
 export default function GitRepo() {
    const router=useRouter();
   const [select, setSelect] = useState('');
   const [value, setValue] = useState('');
-
+  const [repo ,setRepo] = useState([]);
   const token = getCookie('accesstoken');
   const user = getCookie('User');
-  const name = getCookie('Name');
+  const name = getCookie('Name'); 
+  const gituser = getCookie('Gituser');
 
   useEffect(() => {
   if(!token && !user){
@@ -34,23 +35,15 @@ export default function GitRepo() {
                   router.push('/login')
               }
           })
+    };
+ if(gituser){
+     repoHandler(gituser as string).then((res)=>{
+       const result =JSON.parse(JSON.stringify(res))
+       setRepo(result)
+     })
     }
   }, []);
-   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-        
-     event.preventDefault();
-       handler(select,value,String(user)).then((res)=>{
-          console.log(res)
-          if(res.status==200){
-            router.push('/hosting');
-          }
-          else 
-           router.push('/');
-        }
-        )
-
-    }
-
+   
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2 bg-[url('/assets/bgHome.png')] bg-[#C2DAFB]" > 
     <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">     
@@ -79,17 +72,28 @@ export default function GitRepo() {
 
 
        </div>
-      
+   
             <div className='w-3/5 pt-4  pb-20'>
             <div className='flex items-start pt-4 pl-2 pb-28 border border-[#C0C0C0]  rounded-md '>
              <div className='text-left'> 
-            <h2>portfolio(private) alen-eng</h2>
-            <h2 className='text-md font-semibold'><span className='text-lg font-extrabold'>my_app(public)</span> alen-eng</h2>
+             {repo?.map(repos=> (
+            <h2 className='text-lg font-extrabold'>{repos['name']}  <span className='text-md font-semibold'>{repos['private']==false ?"Public" : "Private" }</span></h2>
+             )) }
             <h2></h2>
              </div> 
             </div>
-            </div>
-
+            </div> 
+            // : (
+            //   <div className='w-3/5 pt-4  pb-20'>
+            //   <div className='flex items-start pt-4 pl-2 pb-28 border border-[#C0C0C0]  rounded-md '>
+            //    <div className='text-left'> 
+            //   <h2 className='text-lg font-extrabold'>reposList</h2>
+            //   <h2></h2>
+            //    </div> 
+            //   </div>
+            //   </div>
+            // )
+         
         </div>
        </main>
       </div>

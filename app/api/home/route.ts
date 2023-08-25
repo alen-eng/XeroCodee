@@ -40,7 +40,16 @@ const handler = async (usertype:string , value:string ,user:string) => {
       return res
       }
 
+ const repoHandler = async ( user:string) => {
+  let res = await fetch(`https://api.github.com/users/${user}/repos`, {
+      method: "GET",
+      headers: {    "Content-Type": "application/json" },
+    });
+    res = await res.json();
+    return res
+ }
 
 export default handler
 export {hostHandler}
 export {optionHandler}
+export {repoHandler}
