@@ -14,7 +14,7 @@
  const handler = async (email:string , password:string) => {
     let res = await fetch("https://host007.azurewebsites.net/signin", {
         method: "POST",
-        headers: {    "Content-Type": "application/json" },
+        headers: {    "Content-Type": "application/json" , 'x-Trigger': 'CORS' },
         body: JSON.stringify({
           email: email,
           password: password,
