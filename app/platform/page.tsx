@@ -50,14 +50,13 @@ function Platform() {
         signIn("github",)
         event.preventDefault()
         const userId = session?.user?.image?.slice(40,-4);
-        console.log(userId)
         const loginUser =await fetch(`https://api.github.com/user/${userId}`, {
           method: 'GET',
            headers: {
             'Content-Type': 'application/json',
            },});
-           console.log(loginUser)
         const loginData = JSON.parse(JSON.stringify(loginUser))
+        console.log(loginData)
         setCookie('Gituser',loginData.login,{
           maxAge:60*2,
           path:'/'   
