@@ -93,15 +93,6 @@ function Platform() {
                   onClick={()=>{if(select=='AWS') setSelect('')
                                 else setSelect('AWS')}}
                   >AWS Cloud</button>
-              {/* <button
-                  type='submit'
-                    {...select=='Organisation' ? {className:"bg-[#1F64FF] flex flex-row items-center gap-1 rounded-md text-white font-semibold text-sm border px-8 py-2 hover:opacity-90"}
-                     : {className:"bg-white flex flex-row items-center gap-1 rounded-md text-black font-semibold text-sm border px-8 py-2 "}
-                      } 
-
-                    onClick={()=>{if(select=='Organisation') setSelect('')
-                                else setSelect('Organisation')}}
-                  >Organisation</button> */}
               <button
                   type='submit'
                   className="bg-white flex flex-row items-center gap-1 rounded-md text-black font-semibold text-sm border px-20 py-2 hover:bg-[#1F64FF] hover:text-white "
@@ -120,7 +111,6 @@ function Platform() {
                 <button
                  type='submit'
                   className="bg-[#1F64FF] ml-6  text-white rounded-md px-8 py-2  font-semibold hover:opacity-90"
-                  // onSubmit={(event)=>{event.preventDefault(); router.push('/hosting')}}
                   >Submit</button>
 
               
