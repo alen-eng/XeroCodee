@@ -50,14 +50,27 @@ function Platform() {
         signIn("github",)
         event.preventDefault()
         const userId = session?.user?.image?.slice(40,-4);
-        const loginUser =await fetch(`https://api.github.com/user/${userId}`, {
-          method: 'GET',
-           headers: {
-            'Content-Type': 'application/json',
-           },});
+        // const loginUser =await fetch(`https://api.github.com/user/${userId}`, {
+        //   method: 'GET',
+        //    headers: {
+        //     'Content-Type': 'application/json',
+        //    },});
+        await fetch(`https://api.github.com/user/${userId}`, {
+           method: 'GET',
+            headers: {
+             'Content-Type': 'application/json',
+            },}).then((res)=>{
+              const result =JSON.parse(JSON.stringify(res))
+              console.log(result)
+              setCookie('Gituser',result.login,{
+                maxAge:60*2,
+                path:'/'   
+              })
+              router.push('/gitrepo');
+            })
         //const loginData = JSON.parse(JSON.stringify(loginUser))
-          const data =loginUser.json()
-         console.log(data)
+         // const data =loginUser.json()
+        // console.log(data)
         // setCookie('Gituser',loginData.login,{
         //   maxAge:60*2,
         //   path:'/'   
