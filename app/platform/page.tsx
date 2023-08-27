@@ -56,7 +56,8 @@ function Platform() {
             'Content-Type': 'application/json',
            },});
         //const loginData = JSON.parse(JSON.stringify(loginUser))
-         console.log(loginUser)
+          const data =loginUser.json()
+         console.log(data)
         // setCookie('Gituser',loginData.login,{
         //   maxAge:60*2,
         //   path:'/'   
