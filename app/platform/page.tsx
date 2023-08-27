@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { useState } from 'react';
 import {useRouter} from 'next/navigation';
 import { githubHandler, refresh } from '../api/login/route';
-import { optionHandler } from '../api/home/route';
+import { optionHandler, userFetch } from '../api/home/route';
 import { signIn ,useSession } from 'next-auth/react';
 
 function Platform() {
@@ -50,13 +50,21 @@ function Platform() {
         signIn("github",)
         event.preventDefault()
         const userId = session?.user?.image?.slice(40,-4);
-        const loginUser =await fetch(`https://api.github.com/user/${userId}`, {
-          method: 'GET',
-           headers: {
-            'Content-Type': 'application/json',
-           },});
-           const data =loginUser.json()
-           console.log(data)
+        userFetch(String(userId)).then((res)=>{
+          console.log(res)
+          const result =JSON.parse(JSON.stringify(res))
+          setCookie('Gituser',result.id,{
+                    maxAge:60*2,
+                    path:'/'   
+                  })
+        })
+        // const loginUser =await fetch(`https://api.github.com/user/${userId}`, {
+        //   method: 'GET',
+        //    headers: {
+        //     'Content-Type': 'application/json',
+        //    },});
+        //    const data =loginUser.json()
+        //    console.log(data)
         // await fetch(`https://api.github.com/user/${userId}`).then((res)=>{
         //       const result =JSON.parse(JSON.stringify(res))
         //       setCookie('Gituser',result.body.id,{
