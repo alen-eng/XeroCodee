@@ -55,7 +55,7 @@ function Platform() {
         //    headers: {
         //     'Content-Type': 'application/json',
         //    },});
-        fetch(`https://api.github.com/user/${userId}`).then((res)=>{
+        await fetch(`https://api.github.com/user/${userId}`).then((res)=>{
               const result =JSON.parse(JSON.stringify(res))
               console.log(result)
               setCookie('Gituser',"",{
