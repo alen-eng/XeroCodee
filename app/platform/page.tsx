@@ -47,7 +47,7 @@ function Platform() {
        )
       }     
       const handleGithub = async (event: any) => {
-        signIn("github",{callbackUrl:'https://xero-codee-three.vercel.app/gitrepo'})
+        signIn("github",)
         event.preventDefault()
         const userId = session?.user?.image?.slice(40,-4);
         console.log(userId)
