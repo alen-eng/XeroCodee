@@ -55,12 +55,12 @@ function Platform() {
            headers: {
             'Content-Type': 'application/json',
            },});
-        const loginData = JSON.parse(JSON.stringify(loginUser))
-        console.log(loginData)
-        setCookie('Gituser',loginData.login,{
-          maxAge:60*2,
-          path:'/'   
-        })
+        //const loginData = JSON.parse(JSON.stringify(loginUser))
+         console.log(loginUser)
+        // setCookie('Gituser',loginData.login,{
+        //   maxAge:60*2,
+        //   path:'/'   
+        // })
 
      }  
 
