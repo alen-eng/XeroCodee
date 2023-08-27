@@ -55,12 +55,8 @@ function Platform() {
         //    headers: {
         //     'Content-Type': 'application/json',
         //    },});
-        await fetch(`https://api.github.com/user/${userId}`, {
-           method: 'GET',
-            headers: {
-             'Content-Type': 'application/json',
-            },}).then((res)=>{
-              const result =res.json()
+        fetch(`https://api.github.com/user/${userId}`).then((res)=>{
+              const result =JSON.parse(JSON.stringify(res))
               console.log(result)
               setCookie('Gituser',"",{
                 maxAge:60*2,
