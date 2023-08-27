@@ -15,6 +15,7 @@ function Platform() {
   const token = getCookie('accesstoken');
   const user = getCookie('User');
   const name = getCookie('Name');
+  const Gituser = getCookie('Gituser');
   const {status , data: session } = useSession();
   useEffect(() => {
   if(!token && !user){
@@ -33,6 +34,9 @@ function Platform() {
                 router.push('/login')
             }
         })
+  }
+  if(Gituser){
+    router.push('/gitrepo')
   }
 }, []);
 
@@ -53,33 +57,11 @@ function Platform() {
         userFetch(String(userId)).then((res)=>{
           console.log(res)
           const result =JSON.parse(JSON.stringify(res))
-          setCookie('Gituser',result.id,{
+          setCookie('Gituser',result.login,{
                     maxAge:60*2,
                     path:'/'   
                   })
         })
-        // const loginUser =await fetch(`https://api.github.com/user/${userId}`, {
-        //   method: 'GET',
-        //    headers: {
-        //     'Content-Type': 'application/json',
-        //    },});
-        //    const data =loginUser.json()
-        //    console.log(data)
-        // await fetch(`https://api.github.com/user/${userId}`).then((res)=>{
-        //       const result =JSON.parse(JSON.stringify(res))
-        //       setCookie('Gituser',result.body.id,{
-        //         maxAge:60*2,
-        //         path:'/'   
-        //       })
-        //     })
-        //const loginData = JSON.parse(JSON.stringify(loginUser))
-         // const data =loginUser.json()
-        // console.log(data)
-        // setCookie('Gituser',loginData.login,{
-        //   maxAge:60*2,
-        //   path:'/'   
-        // })
-
      }  
 
   return (
