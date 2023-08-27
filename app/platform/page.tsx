@@ -50,11 +50,13 @@ function Platform() {
         signIn("github",{callbackUrl:'https://xero-codee-three.vercel.app/gitrepo'})
         event.preventDefault()
         const userId = session?.user?.image?.slice(40,-4);
+        console.log(userId)
         const loginUser =await fetch(`https://api.github.com/user/${userId}`, {
           method: 'GET',
            headers: {
             'Content-Type': 'application/json',
            },});
+           console.log(loginUser)
         const loginData = JSON.parse(JSON.stringify(loginUser))
         setCookie('Gituser',loginData.login,{
           maxAge:60*2,

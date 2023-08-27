@@ -77,7 +77,7 @@ export default function GitRepo() {
             <div className='flex items-start pt-4 pl-2 pb-28 border border-[#C0C0C0]  rounded-md '>
              <div className='text-left'> 
              {repo?.map(repos=> (
-            <h2 key={repos['id']} className='text-lg font-extrabold'>{repos['name']}  <span className='text-md font-semibold'>{repos['private']==false ?"Public" : "Private" }</span></h2>
+            <h2 key={repos['id']} className='text-md font-semibold'><span className='text-lg font-extrabold '> {repos['name']}</span>{repos['private']==false ?"Public" : "Private" }</h2>
              )) }
             <h2></h2>
              </div> 
