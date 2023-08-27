@@ -1,6 +1,6 @@
 
 const hostHandler = async (hostingtype:string  ,user:string) => {
-  let res = await fetch("https://host007.azurewebsites.net/host", {
+  let res = await fetch("https://host007.onrender.com/host", {
       method: "POST",
       headers: {    "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -13,7 +13,7 @@ const hostHandler = async (hostingtype:string  ,user:string) => {
     }
 
     const optionHandler = async (hostingOption:string ,repo:string  ,user:string) => {
-      let res = await fetch("https://host007.azurewebsites.net/option", {
+      let res = await fetch("https://host007.onrender.com/option", {
           method: "POST",
           headers: {    "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -27,7 +27,7 @@ const hostHandler = async (hostingtype:string  ,user:string) => {
         }
 
 const handler = async (usertype:string , value:string ,user:string) => {
-    let res = await fetch("https://host007.azurewebsites.net/type", {
+    let res = await fetch("https://host007.onrender.com/type", {
         method: "POST",
         headers: {    "Content-Type": "application/json" },
         body: JSON.stringify({

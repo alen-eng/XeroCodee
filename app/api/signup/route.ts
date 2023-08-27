@@ -2,7 +2,7 @@
 const handler = async (firstName: string ,lastName: string,email: string,password: string) => {
 
     
-        let res = await fetch("https://host007.azurewebsites.net/signup", {
+        let res = await fetch("https://host007.onrender.com/signup", {
             method: "POST",
             headers: {    "Content-Type": "application/json" },
             body: JSON.stringify({
