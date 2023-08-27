@@ -60,14 +60,14 @@ function Platform() {
             headers: {
              'Content-Type': 'application/json',
             },}).then((res)=>{
-              const result =JSON.parse(JSON.stringify(res))
+              const result =res.json()
               console.log(result)
-              setCookie('Gituser',result.login,{
+              setCookie('Gituser',"",{
                 maxAge:60*2,
                 path:'/'   
               })
-              router.push('/gitrepo');
             })
+            router.push('/gitrepo');
         //const loginData = JSON.parse(JSON.stringify(loginUser))
          // const data =loginUser.json()
         // console.log(data)
