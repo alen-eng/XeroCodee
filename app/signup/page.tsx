@@ -120,7 +120,7 @@ else if(!token && !user){
          </div>
 
          <div className="py-3">
-          <h2 className="text-3xl font-bold mb-2">
+          <h2 className="text-3xl text-black font-bold mb-2">
             Hello!
             </h2>
 
@@ -137,12 +137,12 @@ else if(!token && !user){
              <div className="flex flex-col items-center">
 
               <div className="border rounded-md w-full p-2 flex items-center mb-3"> 
-                <input type="text" required={true} name="First Name" placeholder="First Name" onChange={(event) => setFirstName(event.target.value)} className="pl-2 outline-none font-medium text-xs
+                <input type="text" required={true} name="First Name" placeholder="First Name" onChange={(event) => setFirstName(event.target.value)} className="pl-2 outline-none font-medium text-xs text-black
                 flex-1" />
                 </div>
 
                 <div className=" border rounded-md w-full p-2 flex items-center mb-3">
-                <input type="text" required={true} name="Last Name" placeholder="Last Name" onChange={(event) => setLastName(event.target.value)} className="pl-2 outline-none font-medium text-xs
+                <input type="text" required={true} name="Last Name" placeholder="Last Name" onChange={(event) => setLastName(event.target.value)} className="pl-2 outline-none font-medium text-xs text-black
                 flex-1" />
                 </div>
 

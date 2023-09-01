@@ -57,7 +57,7 @@ export default function GitRepo() {
 
         <div className="py-3 ">
 
-            <h2 className="text-3xl font-bold mb-2">
+            <h2 className="text-3xl text-black font-bold mb-2">
             Welcome {name ? `${name}` : "Arya Soni"} !
             </h2>
 

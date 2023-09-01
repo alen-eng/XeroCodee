@@ -126,7 +126,7 @@ function Login() {
          </div>
 
          <div className="py-3">
-          <h2 className="text-3xl font-bold mb-2">
+          <h2 className="text-3xl text-black font-bold mb-2">
             Welcome User!!
             </h2>
 
@@ -143,12 +143,12 @@ function Login() {
              <div className="flex flex-col items-center">
 
                 <div className="border rounded-md w-full p-2 flex items-center mb-3"> 
-                <input type="email" name="Email-Id" placeholder="Email-Id" onChange={(event) => setEmail(event.target.value)} className="pl-2 outline-none font-medium text-xs
+                <input type="email" name="Email-Id" placeholder="Email-Id" onChange={(event) => setEmail(event.target.value)} className="pl-2 outline-none font-medium text-xs text-black
                 flex-1" />
                 </div>
 
                 <div className=" border rounded-md w-full p-2 flex items-center mb-3">
-                <input type="password" name="Password" placeholder="Password" onChange={(event) => setPassword(event.target.value)} className="pl-2 outline-none font-medium text-xs
+                <input type="password" name="Password" placeholder="Password" onChange={(event) => setPassword(event.target.value)} className="pl-2 outline-none font-medium text-xs text-black
                 flex-1" />
                 </div>
 
